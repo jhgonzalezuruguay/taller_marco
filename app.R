@@ -1,7 +1,39 @@
 library(shiny)
 
-ui <- navbarPage("Taller de Investigación",
-                 
+ui <- navbarPage("Taller de Marco Teórico",
+                                  
+                                  tags$head(
+                                    tags$style(HTML("
+                     
+                     /* Botones normales */
+                     .btn,
+                     .btn-default,
+                     .btn-primary {
+                       background-color: #90EE90 !important;
+                       border-color: #90EE90 !important;
+                       color: black !important;
+                       background-image: none !important;
+                     }
+                     
+                     /* Estados hover, focus y active */
+                     .btn:hover,
+                     .btn:focus,
+                     .btn:active,
+                     .btn-default:hover,
+                     .btn-default:focus,
+                     .btn-default:active,
+                     .btn-primary:hover,
+                     .btn-primary:focus,
+                     .btn-primary:active {
+                       background-color: #90EE90 !important;
+                       border-color: #90EE90 !important;
+                       color: black !important;
+                       box-shadow: none !important;
+                       outline: none !important;
+                     }
+                     
+                   "))
+                                  ),                 
                  # --------------------------
                  # CAPÍTULO III
                  # --------------------------
@@ -59,8 +91,8 @@ ui <- navbarPage("Taller de Investigación",
                           h4("Actividad práctica individual"),
                           p("Ejercicio: Identifica tres conceptos clave para elaborar un marco teórico sobre 'Acceso a la Justicia', u otro tema de tu interés."),
                           textAreaInput("conceptosAcceso", "Escribe tus conceptos clave:", width = "100%", height = "80px"),
-                          actionButton("solConceptos", "Ver respuesta sugerida"),
-                          textOutput("respConceptos"),
+                          actionButton("solConceptos", "Ver respuesta sugerida"),br(),
+                          textOutput("respConceptos"),br(),br(),
                           downloadButton("downloadConceptos", "Descargar mis conceptos en .txt"),
                           
                           br(),br(),
@@ -129,16 +161,16 @@ ui <- navbarPage("Taller de Investigación",
                           textOutput("feedbackVF"),
                           
                           br(),br(),br(),
-                          
+                        
                           # --- Flashcards ---
                           h4("Flashcards: Marco Teórico"),
-                          actionButton("flashMT", "Ver definición de Marco Teórico"),
-                          textOutput("cardMT"),
-                          actionButton("flashMC", "Ver definición de Marco Conceptual"),
-                          textOutput("cardMC"),
-                          actionButton("flashAnt", "Ver definición de Antecedentes"),
+                          actionButton("flashMT", "Ver definición de Marco Teórico"),br(),
+                          textOutput("cardMT"),br(),br(),
+                          actionButton("flashMC", "Ver definición de Marco Conceptual"),br(),
+                          textOutput("cardMC"),br(),br(),
+                          actionButton("flashAnt", "Ver definición de Antecedentes"),br(),
                           textOutput("cardAnt")
-                 )
+                 ),br(),br(),
 )
 
 server <- function(input, output, session) {
@@ -216,3 +248,4 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server)
+
